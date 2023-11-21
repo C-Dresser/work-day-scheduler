@@ -14,17 +14,18 @@ $(function () {
   console.log(currentTime);
   console.log(currentDate);
 //wrote a function to cycle through the timeblocks on the page and determine their relation to the current time and console log it
+//updated function to add data to class lists to display proper css styling based on time of day
   for (var i = 0; i < timeBlocks.length; i++) {
     var timeBlock = timeBlocks[i];
 
     var timeSlot = parseInt(timeBlock.id, 10);
 
     if (timeSlot < currentTime) {
-        console.log(timeBlock.id + " is less than " + currentTime);
+      timeBlock.classList.add('past');
     } else if (timeSlot === currentTime) {
-        console.log(timeBlock.id + " is equal to " + currentTime);
+      timeBlock.classList.add('present');
     } else {
-        console.log(timeBlock.id + " is greater than " + currentTime);
+      timeBlock.classList.add('future');
     }
 }
 
