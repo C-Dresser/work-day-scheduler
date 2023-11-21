@@ -28,8 +28,11 @@ $(function () {
     }
   };
   //added event listener to save buttons
+  //updated event listener to retrieve which time block its tied to
   $(saveButton).on("click", function() {
-  console.log("saved!");
+    var blockTime = $(this).closest('.time-block');
+    var blockTimeID = blockTime.attr('id');
+    console.log(blockTimeID);
   });
 
   // DO: Add a listener for click events on the save button. This code should
