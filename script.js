@@ -2,15 +2,33 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
+//Houeskeeping
 var currentTime = dayjs().hour();
 var currentDate = dayjs().format('dddd, MMMM DD');
 var todaysDateDisplay = document.getElementById("currentDay");
+var timeBlocks = document.getElementsByClassName('time-block');
+//added current date to header
+todaysDateDisplay.textContent = currentDate;
 
 $(function () {
   console.log(currentTime);
   console.log(currentDate);
-  todaysDateDisplay.textContent = currentDate;
-  // TODO: Add a listener for click events on the save button. This code should
+//wrote a function to cycle through the timeblocks on the page and determine their relation to the current time and console log it
+  for (var i = 0; i < timeBlocks.length; i++) {
+    var timeBlock = timeBlocks[i];
+
+    var timeSlot = parseInt(timeBlock.id, 10);
+
+    if (timeSlot < currentTime) {
+        console.log(timeBlock.id + " is less than " + currentTime);
+    } else if (timeSlot === currentTime) {
+        console.log(timeBlock.id + " is equal to " + currentTime);
+    } else {
+        console.log(timeBlock.id + " is greater than " + currentTime);
+    }
+}
+
+  // DO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
   // function? How can DOM traversal be used to get the "hour-x" id of the
@@ -26,6 +44,4 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
 });
