@@ -28,6 +28,15 @@ console.log(currentTime);
     } else {
       timeBlock.classList.add('future');
     }
+//added code to get data from local storage upon page load and refresh
+    var blockTimeID = timeBlock.id;
+    var storedValue = localStorage.getItem(blockTimeID);
+
+    if (storedValue !== null) {
+      var userInput = timeBlock.querySelector('.userText');
+      userInput.value = storedValue;
+    }
+
   };
   //added event listener to save buttons
   //updated event listener to retrieve which time block its tied to
