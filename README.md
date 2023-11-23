@@ -9,3 +9,4 @@ This is a work day scheduler. It allows the user to input tasks to complete at c
 
 ## Links
 
+[Live Site](https://c-dresser.github.io/work-day-scheduler/)
