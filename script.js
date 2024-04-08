@@ -3,7 +3,7 @@
 // in the html.
 
 //Houeskeeping
-var currentTime = 14//dayjs().hour();
+var currentTime = dayjs().hour();
 var currentDate = dayjs().format('dddd, MMMM DD');
 var todaysDateDisplay = document.getElementById("currentDay");
 var timeBlocks = document.getElementsByClassName('time-block');
